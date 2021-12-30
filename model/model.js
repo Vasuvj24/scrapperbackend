@@ -20,4 +20,4 @@ const sendData = async(data)=>{
     .then((res)=>{console.log("saved data "+res)})
     .catch((err)=>{console.log("error in saving data "+err)})
 }
-module.exports = {sendData,getData};
+module.exports = {sendData};
