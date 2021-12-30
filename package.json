@@ -1,0 +1,21 @@
+{
+  "name": "scrapperbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scrapperBackend.js",
+  "scripts": {
+    "devStart": "nodemon scrapperBackend.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cheerio": "^1.0.0-rc.10",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "heroku": "^7.59.2",
+    "nodemon": "^2.0.15",
+    "request": "^2.88.2"
+  }
+}

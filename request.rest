@@ -1,0 +1,8 @@
+POST http://localhost:3001/sendData
+Content-Type: application/json
+
+{
+    "data":"ruby"
+}
+####
+GET http://localhost:3001/getData
