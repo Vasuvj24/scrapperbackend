@@ -40,7 +40,7 @@ app.post('/sendData', jsonParser, async (req, res) => {
     data = req.body.data;
     res.send(console.log("successfully got the data " + req.body.data)).status(200)
 })
-app.get('/getData', jsonParser, (req, res) => {
+app.get('/x', jsonParser, (req, res) => {
     console.log("inside get request " + data);
     request(`https://medium.com/tag/${data}/latest`, async (err, resi, html) => {
         console.log("inside request " + data);
