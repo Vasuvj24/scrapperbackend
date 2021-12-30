@@ -15,7 +15,8 @@ let tags = [];
 let upload = [];
 let time = [];
 let blog = [];
-app.listen(3001);
+var port_number = process.env.PORT || 3000;
+app.listen(port_number);
 app.use(
     cors({
         origin:"*",
