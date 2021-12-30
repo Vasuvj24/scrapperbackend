@@ -4,6 +4,7 @@
   "description": "",
   "main": "scrapperBackend.js",
   "scripts": {
+    "start": "node scrapperBackend.js",
     "devStart": "nodemon scrapperBackend.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
