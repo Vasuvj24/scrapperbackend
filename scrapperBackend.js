@@ -38,14 +38,15 @@ app.get('/', (req, res) => {
 })
 app.post('/sendData', jsonParser, async (req, res) => {
     data = req.body.data;
+    await sendData(data).then(res => console.log("succesfully sent data " + res)).catch(err=>console.log("error in saving data "+err))
+    await Recent.find().then(res=>rtab=res).catch(err=>console.log('error in getting data '+err))
     res.send(console.log("successfully got the data " + req.body.data)).status(200)
 })
 app.get('/x', jsonParser, (req, res) => {
     console.log("inside get request " + data);
     request(`https://medium.com/tag/${data}/latest`, async (err, resi, html) => {
         console.log("inside request " + data);
-        await sendData(data).then(res => console.log("succesfully sent data " + res)).catch(err=>console.log("error in saving data "+err))
-        await Recent.find().then(res=>rtab=res).catch(err=>console.log('error in getting data '+err))
+        
         console.log("recents " + rtab)
         if (!err && res.statusCode === 200) {
             let $ = cheerio.load(html);
