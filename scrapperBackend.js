@@ -27,7 +27,7 @@ app.post('/sendData',jsonParser,async(req,res)=>{
 })
 app.get('/getData',jsonParser,(req, res) => {
     console.log("inside get request "+ data);
-    request(`https://medium.com/tag/${data}/latest`, (err, res, html) => {
+    request(`https://medium.com/tag/python/latest`, (err, res, html) => {
         console.log("inside request "+data)
         if (!err && res.statusCode === 200) {
             let $ = cheerio.load(html);
