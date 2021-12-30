@@ -7,6 +7,7 @@ const cors = require('cors');
 const request = require('request');
 const cheerio = require('cheerio');
 const { json } = require('express/lib/response');
+const { empty } = require('cheerio/lib/api/manipulation');
 let links = [];
 let title = [];
 let creator = []; 
@@ -30,7 +31,7 @@ app.post('/sendData',jsonParser,async(req,res)=>{
 })
 app.get('/getData',jsonParser,(req, res) => {
     console.log("inside get request "+ data);
-    request(`https://medium.com/tag/python/latest`, (err, res, html) => {
+    request(`https://medium.com/tag/${data}/latest`, (err, resi, html) => {
         console.log("inside request "+data)
         if (!err && res.statusCode === 200) {
             let $ = cheerio.load(html);
@@ -73,22 +74,22 @@ app.get('/getData',jsonParser,(req, res) => {
         }else{
             console.log("error is here");
         }
+        let obj = {
+            "links": links,
+            "title": title,
+            "creator": creator,
+            "tags": tags,
+            "upload": upload,
+            "time": time,
+            "blog": blog
+        };
+        links=[];
+        title=[];
+        creator=[];
+        tags=[];
+        upload=[];
+        time=[];
+        blog=[];
+        res.send(obj).status(200);
     })
-    let obj = {
-        "links": links,
-        "title": title,
-        "creator": creator,
-        "tags": tags,
-        "upload": upload,
-        "time": time,
-        "blog": blog
-    };
-    links=[];
-    title=[];
-    creator=[];
-    tags=[];
-    upload=[];
-    time=[];
-    blog=[];
-    res.send(obj).status(200)
 })
