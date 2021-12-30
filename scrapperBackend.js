@@ -7,7 +7,7 @@ const cors = require('cors');
 const request = require('request');
 const cheerio = require('cheerio');
 const { json } = require('express/lib/response');
-const { empty } = require('cheerio/lib/api/manipulation');
+// const { empty } = require('cheerio/lib/api/manipulation');
 let links = [];
 let title = [];
 let creator = []; 
@@ -15,10 +15,12 @@ let tags = [];
 let upload = [];
 let time = [];
 let blog = [];
-app.listen(3001 );
+app.listen(3001);
 app.use(
     cors({
-        origin:"*"
+        origin:"*",
+        credentials:true,            //access-control-allow-credentials:true
+        optionSuccessStatus:200,
     })
 )
 let data;
