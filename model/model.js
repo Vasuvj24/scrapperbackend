@@ -20,10 +20,4 @@ const sendData = async(data)=>{
     .then((res)=>{console.log("saved data "+res)})
     .catch((err)=>{console.log("error in saving data "+err)})
 }
-const getData = async()=>{
-    console.log("inside get data");
-    await Recent.find()
-    .then(res=>{return res;})
-    .catch(err=>console.log("error in getting data "+err))
-}
 module.exports = {sendData,getData};
