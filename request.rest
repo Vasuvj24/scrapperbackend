@@ -1,8 +1,8 @@
-POST http://localhost:3001/sendData
+POST http://localhost:3000/sendData
 Content-Type: application/json
 
 {
     "data":"ruby"
 }
 ####
-GET http://localhost:3001/getData
+GET http://localhost:3000/getData
