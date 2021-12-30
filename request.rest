@@ -1,4 +1,4 @@
-POST http://localhost:3001/sendData
+POST https://scrapperbackend-heroku.herokuapp.com/sendData
 Content-Type: application/json
 
 {

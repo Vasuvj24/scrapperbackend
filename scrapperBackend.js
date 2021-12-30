@@ -21,6 +21,9 @@ app.use(
     })
 )
 let data;
+app.get('/',(req,res)=>{
+    res.send("move to different links for the data")
+})
 app.post('/sendData',jsonParser,async(req,res)=>{
     data=req.body.data;
     res.send(console.log("successfully got the data "+req.body.data)).status(200)
