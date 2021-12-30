@@ -22,7 +22,7 @@ app.use(
 )
 let data;
 app.get('/',(req,res)=>{
-    res.send("move to different links for the data")
+    res.send("move to different links for the data try")
 })
 app.post('/sendData',jsonParser,async(req,res)=>{
     data=req.body.data;
