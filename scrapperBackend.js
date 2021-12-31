@@ -28,7 +28,7 @@ app.listen(port_number);
 app.use(
     cors({
         origin: "*",
-        credentials: true,            
+        credentials: true,
         optionSuccessStatus: 200,
     })
 )
@@ -38,15 +38,15 @@ app.get('/', (req, res) => {
 })
 app.post('/sendData', jsonParser, async (req, res) => {
     data = req.body.data;
-    await sendData(data).then(res => console.log("succesfully sent data " + res)).catch(err=>console.log("error in saving data "+err))
-    await Recent.find().then(res=>rtab=res).catch(err=>console.log('error in getting data '+err))
+    await sendData(data).then(res => console.log("succesfully sent data " + res)).catch(err => console.log("error in saving data " + err))
+    await Recent.find().then(res => rtab = res).catch(err => console.log('error in getting data ' + err))
     res.send(console.log("successfully got the data " + req.body.data)).status(200)
 })
 app.get('/getData', jsonParser, (req, res) => {
     console.log("inside get request " + data);
     request(`https://medium.com/tag/${data}/latest`, async (err, resi, html) => {
         console.log("inside request " + data);
-        
+
         console.log("recents " + rtab)
         if (!err && res.statusCode === 200) {
             let $ = cheerio.load(html);
@@ -54,7 +54,7 @@ app.get('/getData', jsonParser, (req, res) => {
             $('a').each((i, el) => {
 
                 if ($(el).attr().class != undefined && $(el).attr().class.length == 44 && $(el).children().length == 1 && $(el).children().children().length == 2) {
-                    links.push($(el).attr('href')); 
+                    links.push($(el).attr('href'));
                     // console.log($(el).children().length);
                 }
             });
